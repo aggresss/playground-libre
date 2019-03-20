@@ -1,0 +1,8 @@
+[submodule "third_party/re"]
+	path = third_party/re
+	url = https://github.com/creytiv/re.git
+	branch = master
+[submodule "third_party/rem"]
+	path = third_party/rem
+	url = https://github.com/creytiv/rem.git
+	branch = master
