@@ -110,14 +110,29 @@ set(TOP_DIRS ${PROJECT_SOURCE_DIR})
 set(THIRD_PARTY_DIRS ${PROJECT_SOURCE_DIR}/third_party)
 
 # libre
-set(LIBRE_DIRS ${THIRD_PARTY_DIRS}/libre)
+set(LIBRE_DIRS ${THIRD_PARTY_DIRS}/re)
 set(LIBRE_INCLUDE_DIRS ${LIBRE_DIRS}/include)
 set(LIBRE_SRC_DIRS ${LIBRE_DIRS}/src)
 
 # librem
-set(LIBREM_DIRS ${THIRD_PARTY_DIRS}/librem)
+set(LIBREM_DIRS ${THIRD_PARTY_DIRS}/rem)
 set(LIBREM_INCLUDE_DIRS ${LIBREM_DIRS}/include)
 set(LIBREM_SRC_DIRS ${LIBREM_DIRS}/src)
+
+# ------------------------------------------------------------------------------
+# libre base source
+# ------------------------------------------------------------------------------
+
+set(LIBRE_BASE_DIR types fmt dbg mem tmr mbuf msg list sa sys net net/posix net/linux)
+foreach(ONE_DIR ${LIBRE_BASE_DIR})
+  file(GLOB CUR_SRCS ${LIBRE_SRC_DIRS}/${ONE_DIR}/*.c)
+  list(APPEND LIBRE_BASE_SRCS ${CUR_SRCS})
+endforeach()
+
+list(APPEND LIBRE_BASE_SRCS ${LIBRE_SRC_DIRS}/main/init.c)
+list(APPEND LIBRE_BASE_SRCS ${LIBRE_SRC_DIRS}/main/main.c)
+list(APPEND LIBRE_BASE_SRCS ${LIBRE_SRC_DIRS}/main/method.c)
+list(APPEND LIBRE_BASE_SRCS ${LIBRE_SRC_DIRS}/main/epoll.c)
 
 # ------------------------------------------------------------------------------
 # definition for libre
