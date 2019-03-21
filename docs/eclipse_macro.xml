@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cdtprojectproperties>
+    <section name="org.eclipse.cdt.internal.ui.wizards.settingswizards.Macros">
+        <language name="holder for library settings">
+        </language>
+        <language name="Assembly">
+        </language>
+        <language name="GNU C++">
+            <macro><name>HAVE_PTHREAD </name><value>1</value></macro>
+            <macro><name>HAVE_GETIFADDRS</name><value>1</value></macro>
+            <macro><name>HAVE_STRERROR_R</name><value>1</value></macro>
+            <macro><name>HAVE_GETOPT</name><value>1</value></macro>
+            <macro><name>HAVE_INTTYPES_H </name><value>1</value></macro>
+            <macro><name>HAVE_NET_ROUTE_H</name><value>1</value></macro>
+            <macro><name>HAVE_SYS_SYSCTL_H</name><value>1</value></macro>
+            <macro><name>HAVE_STDBOOL_H </name><value>1</value></macro>
+            <macro><name>HAVE_INET6</name><value>1</value></macro>
+            <macro><name>HAVE_RESOLV</name><value>1</value></macro>
+            <macro><name>HAVE_SYSLOG</name><value>1</value></macro>
+            <macro><name>HAVE_FORK</name><value>1</value></macro>
+            <macro><name>HAVE_INET_NTOP</name><value>1</value></macro>
+            <macro><name>HAVE_PWD_H </name><value>1</value></macro>
+            <macro><name>HAVE_POLL</name><value>1</value></macro>
+            <macro><name>HAVE_INET_PTON </name><value>1</value></macro>
+            <macro><name>HAVE_SELECT </name><value>1</value></macro>
+            <macro><name>HAVE_SELECT_H </name><value>1</value></macro>
+            <macro><name>HAVE_SETRLIMIT</name><value>1</value></macro>
+            <macro><name>HAVE_SIGNAL</name><value>1</value></macro>
+            <macro><name>HAVE_SYS_TIME_H </name><value>1</value></macro>
+            <macro><name>HAVE_EPOLL</name><value>1</value></macro>
+            <macro><name>HAVE_UNAME</name><value>1</value></macro>
+            <macro><name>HAVE_UNISTD_H</name><value>1</value></macro>
+            <macro><name>HAVE_STRINGS_H</name><value>1</value></macro>
+            <macro><name>HAVE_ROUTE_LIST</name><value>1</value></macro>
+        </language>
+
+        <language name="GNU C">
+            <macro><name>HAVE_PTHREAD </name><value>1</value></macro>
+            <macro><name>HAVE_GETIFADDRS</name><value>1</value></macro>
+            <macro><name>HAVE_STRERROR_R</name><value>1</value></macro>
+            <macro><name>HAVE_GETOPT</name><value>1</value></macro>
+            <macro><name>HAVE_INTTYPES_H </name><value>1</value></macro>
+            <macro><name>HAVE_NET_ROUTE_H</name><value>1</value></macro>
+            <macro><name>HAVE_SYS_SYSCTL_H</name><value>1</value></macro>
+            <macro><name>HAVE_STDBOOL_H </name><value>1</value></macro>
+            <macro><name>HAVE_INET6</name><value>1</value></macro>
+            <macro><name>HAVE_RESOLV</name><value>1</value></macro>
+            <macro><name>HAVE_SYSLOG</name><value>1</value></macro>
+            <macro><name>HAVE_FORK</name><value>1</value></macro>
+            <macro><name>HAVE_INET_NTOP</name><value>1</value></macro>
+            <macro><name>HAVE_PWD_H </name><value>1</value></macro>
+            <macro><name>HAVE_POLL</name><value>1</value></macro>
+            <macro><name>HAVE_INET_PTON </name><value>1</value></macro>
+            <macro><name>HAVE_SELECT </name><value>1</value></macro>
+            <macro><name>HAVE_SELECT_H </name><value>1</value></macro>
+            <macro><name>HAVE_SETRLIMIT</name><value>1</value></macro>
+            <macro><name>HAVE_SIGNAL</name><value>1</value></macro>
+            <macro><name>HAVE_SYS_TIME_H </name><value>1</value></macro>
+            <macro><name>HAVE_EPOLL</name><value>1</value></macro>
+            <macro><name>HAVE_UNAME</name><value>1</value></macro>
+            <macro><name>HAVE_UNISTD_H</name><value>1</value></macro>
+            <macro><name>HAVE_STRINGS_H</name><value>1</value></macro>
+            <macro><name>HAVE_ROUTE_LIST</name><value>1</value></macro>
+        </language>
+    </section>
+</cdtprojectproperties>
