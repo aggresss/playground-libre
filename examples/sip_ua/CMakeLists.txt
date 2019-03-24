@@ -32,7 +32,6 @@ if(${SUBMODULE} OR BUILD_ALL)
     file(GLOB CUR_SRCS ${LIBRE_SRC_DIRS}/${module}/*.c)
     list(APPEND SRCS ${CUR_SRCS})
   endforeach()
-    list(APPEND SRCS ${LIBRE_SRC_DIRS}/lock/lock.c)
 
   aux_source_directory(${CMAKE_CURRENT_LIST_DIR} SRCS)
   add_executable(${SUBMODULE} ${SRCS})

@@ -5,10 +5,10 @@
 linux 可以直接目录引用：
 - dns
 - mod
+- mqueue
 
 linux 需要按文件引用：
-- mqueue
 - net
-- lock
 - main
+- lock
 

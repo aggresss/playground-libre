@@ -134,37 +134,39 @@ list(APPEND LIBRE_BASE_SRCS ${LIBRE_SRC_DIRS}/main/main.c)
 list(APPEND LIBRE_BASE_SRCS ${LIBRE_SRC_DIRS}/main/method.c)
 list(APPEND LIBRE_BASE_SRCS ${LIBRE_SRC_DIRS}/main/epoll.c)
 
+list(APPEND LIBRE_BASE_SRCS ${LIBRE_SRC_DIRS}/lock/lock.c)
+
 # ------------------------------------------------------------------------------
 # definition for libre
 # ------------------------------------------------------------------------------
 
 add_definitions(
-  -DHAVE_PTHREAD
+  -DHAVE_EPOLL
+  -DHAVE_FORK
   -DHAVE_GETIFADDRS
-  -DHAVE_STRERROR_R
   -DHAVE_GETOPT
+  -DHAVE_INET6
+  -DHAVE_INET_NTOP
+  -DHAVE_INET_PTON
   -DHAVE_INTTYPES_H
   -DHAVE_NET_ROUTE_H
-  -DHAVE_SYS_SYSCTL_H
-  -DHAVE_STDBOOL_H
-  -DHAVE_INET6
-  -DHAVE_RESOLV
-  -DHAVE_SYSLOG
-  -DHAVE_FORK
-  -DHAVE_INET_NTOP
-  -DHAVE_PWD_H
   -DHAVE_POLL
-  -DHAVE_INET_PTON
+  -DHAVE_PTHREAD
+  -DHAVE_PWD_H
+  -DHAVE_RESOLV
+  -DHAVE_ROUTE_LIST
   -DHAVE_SELECT
   -DHAVE_SELECT_H
   -DHAVE_SETRLIMIT
   -DHAVE_SIGNAL
+  -DHAVE_STDBOOL_H
+  -DHAVE_STRERROR_R
+  -DHAVE_STRINGS_H
+  -DHAVE_SYSLOG
+  -DHAVE_SYS_SYSCTL_H
   -DHAVE_SYS_TIME_H
-  -DHAVE_EPOLL
   -DHAVE_UNAME
   -DHAVE_UNISTD_H
-  -DHAVE_STRINGS_H
-  -DHAVE_ROUTE_LIST
   )
 
 # ------------------------------------------------------------------------------
