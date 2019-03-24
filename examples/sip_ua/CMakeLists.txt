@@ -9,7 +9,31 @@ if(${SUBMODULE} OR BUILD_ALL)
   # Build
   include_directories(${LIBRE_INCLUDE_DIRS})
   set(SRCS ${LIBRE_BASE_SRCS})
-  aux_source_directory(${LIBRE_SRC_DIRS}/tcp SRCS)
+
+  set(MODULES
+    tcp
+    udp
+    dns
+    rtp
+    sip
+    sipreg
+    sipsess
+    sdp
+    stun
+    httpauth
+    crc32
+    sha
+    hmac
+    md5
+    hash
+    uri
+    )
+  foreach(module ${MODULES})
+    file(GLOB CUR_SRCS ${LIBRE_SRC_DIRS}/${module}/*.c)
+    list(APPEND SRCS ${CUR_SRCS})
+  endforeach()
+    list(APPEND SRCS ${LIBRE_SRC_DIRS}/lock/lock.c)
+
   aux_source_directory(${CMAKE_CURRENT_LIST_DIR} SRCS)
   add_executable(${SUBMODULE} ${SRCS})
   target_compile_options(${SUBMODULE} PRIVATE -std=c99)
