@@ -131,8 +131,8 @@ set(LIBRE_BASE_DIR
   mem
   mbuf
   tmr
-  msg
   sa
+  msg
   sys
   net
   net/posix
