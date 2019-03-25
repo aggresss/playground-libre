@@ -57,14 +57,14 @@ endif()
 
 # Default C / CXX flags
 if (NOT CMAKE_BUILD_TYPE)
-  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall ")
+  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall")
   set(CMAKE_CXX_FLAGS ${CMAKE_C_FLAGS})
 endif()
 
 set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -g -ggdb -O0 -Wall")
 set(CMAKE_CXX_FLAGS_DEBUG ${CMAKE_C_FLAGS_DEBUG})
 
-set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -O3 -Wall -DNDEBUG")
+set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -O3 -Wall -DNDEBUG -DRELEASE")
 set(CMAKE_CXX_FLAGS_RELEASE ${CMAKE_CXX_FLAGS_RELEASE})
 
 set(CMAKE_C_FLAGS_COVERAGE "${CMAKE_C_FLAGS_DEBUG} -fprofile-arcs -ftest-coverage")
@@ -123,18 +123,36 @@ set(LIBREM_SRC_DIRS ${LIBREM_DIRS}/src)
 # libre base source
 # ------------------------------------------------------------------------------
 
-set(LIBRE_BASE_DIR types fmt dbg mem tmr mbuf msg list sa sys net net/posix net/linux)
-foreach(ONE_DIR ${LIBRE_BASE_DIR})
-  file(GLOB CUR_SRCS ${LIBRE_SRC_DIRS}/${ONE_DIR}/*.c)
+set(LIBRE_BASE_DIR
+  types
+  fmt
+  list
+  dbg
+  mem
+  mbuf
+  tmr
+  msg
+  sa
+  sys
+  net
+  net/posix
+  net/linux
+  )
+foreach(one_dir ${LIBRE_BASE_DIR})
+  file(GLOB CUR_SRCS ${LIBRE_SRC_DIRS}/${one_dir}/*.c)
   list(APPEND LIBRE_BASE_SRCS ${CUR_SRCS})
 endforeach()
 
-list(APPEND LIBRE_BASE_SRCS ${LIBRE_SRC_DIRS}/main/init.c)
-list(APPEND LIBRE_BASE_SRCS ${LIBRE_SRC_DIRS}/main/main.c)
-list(APPEND LIBRE_BASE_SRCS ${LIBRE_SRC_DIRS}/main/method.c)
-list(APPEND LIBRE_BASE_SRCS ${LIBRE_SRC_DIRS}/main/epoll.c)
-
-list(APPEND LIBRE_BASE_SRCS ${LIBRE_SRC_DIRS}/lock/lock.c)
+set(LIBRE_LINUX_SPEC_FILE
+  main/init.c
+  main/main.c
+  main/method.c
+  main/epoll.c
+  lock/lock.c
+  )
+foreach(one_file ${LIBRE_LINUX_SPEC_FILE})
+  list(APPEND LIBRE_BASE_SRCS ${LIBRE_SRC_DIRS}/${one_file})
+endforeach()
 
 # ------------------------------------------------------------------------------
 # definition for libre
