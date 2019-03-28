@@ -32,6 +32,10 @@
             <macro><name>HAVE_UNISTD_H</name><value>1</value></macro>
             <macro><name>HAVE_STRINGS_H</name><value>1</value></macro>
             <macro><name>HAVE_ROUTE_LIST</name><value>1</value></macro>
+            <macro><name>VERSION</name><value>"0.0.0"</value></macro>
+            <macro><name>VER_MAJOR</name><value>0</value></macro>
+            <macro><name>VER_MINOR</name><value>0</value></macro>
+            <macro><name>VER_PATCH</name><value>0</value></macro>
         </language>
 
         <language name="GNU C">
@@ -61,6 +65,10 @@
             <macro><name>HAVE_UNISTD_H</name><value>1</value></macro>
             <macro><name>HAVE_STRINGS_H</name><value>1</value></macro>
             <macro><name>HAVE_ROUTE_LIST</name><value>1</value></macro>
+            <macro><name>VERSION</name><value>"0.0.0"</value></macro>
+            <macro><name>VER_MAJOR</name><value>0</value></macro>
+            <macro><name>VER_MINOR</name><value>0</value></macro>
+            <macro><name>VER_PATCH</name><value>0</value></macro>
         </language>
     </section>
 </cdtprojectproperties>

@@ -185,6 +185,10 @@ add_definitions(
   -DHAVE_SYS_TIME_H
   -DHAVE_UNAME
   -DHAVE_UNISTD_H
+  -DVERSION=\"0.0.0\"
+  -DVER_MAJOR=0
+  -DVER_MINOR=0
+  -DVER_PATCH=0
   )
 
 # ------------------------------------------------------------------------------
