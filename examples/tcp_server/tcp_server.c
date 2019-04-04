@@ -9,6 +9,7 @@
 
 #include <string.h>
 #include <re.h>
+#include <re_dbg.h>
 
 
 /* Application connection context */
@@ -124,6 +125,9 @@ int main(void)
 	struct sa laddr;
 	int err; /* errno return values */
 
+	/* set debug */
+	dbg_init(DBG_DEBUG, DBG_ALL);
+
 	/* enable coredumps to aid debugging */
 	(void)sys_coredump_set(true);
 
@@ -161,6 +165,7 @@ int main(void)
 	/* check for memory leaks */
 	tmr_debug();
 	mem_debug();
+	dbg_close();
 
 	return err;
 }
