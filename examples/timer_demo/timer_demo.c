@@ -18,7 +18,7 @@ static void signal_handler(int signum)
 
 static void timer_hander(void * args)
 {
-    re_fprintf(stdout, "timer test on %"PRId64"\n", tmr_jiffies());
+    re_fprintf(stdout, "timer test on %"PRIu64"\n", tmr_jiffies());
 }
 
 int main(int argc, const char * argv[])
