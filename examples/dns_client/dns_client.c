@@ -83,7 +83,6 @@ static void query_handler(int err, const struct dnshdr *hdr, struct list *ansl,
     return;
 }
 
-
 int main(int argc, const char * argv[])
 {
     int err = 0;
