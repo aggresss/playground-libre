@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <assert.h>
+#include <inttypes.h>
+
 #include "re.h"
-#include "inttypes.h"
+
 
 #define DEBUG_MODULE "timer_demo"
 #define DEBUG_LEVEL 7
