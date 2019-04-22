@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <assert.h>
+#include <unistd.h>
 #include <string.h>
 #include <inttypes.h>
 
@@ -23,7 +24,7 @@ static void signal_handler(int signum)
 
 static void http_resp_handler(int err, const struct http_msg *msg, void *arg)
 {
-    (void)(arg);
+    FILE * f = * (FILE *)arg;
     bool chunked;
 
     if (err) {
@@ -47,8 +48,19 @@ static void http_resp_handler(int err, const struct http_msg *msg, void *arg)
 static int http_data_handler(const uint8_t *buf, size_t size,
                  const struct http_msg *msg, void *arg)
 {
-    (void)(arg);
+    FILE * f = arg;
     (void)msg;
+
+    // 文件没有打开则先打开
+    if(!f)
+    {
+        f = fopen("file.file", "w");
+        if(!f)
+        {
+            re_printf("fopen %s error: %m\n", f);
+            return -1;
+        }
+    }
 
     return 0;
 }
@@ -61,6 +73,7 @@ int main(int argc, const char * argv[])
     uint32_t nsc;
     struct sa nsv[16];
     char url[256];
+    FILE * fptr;
     int err; /* errno return values */
 
     /* enable coredumps to aid debugging */
@@ -101,10 +114,8 @@ int main(int argc, const char * argv[])
 
     (void)re_snprintf(url, sizeof(url), "http://link.router7.com:8091/index.html");
 
-//    err = http_request(&req, cli, "GET", url,
-//               http_resp_handler, http_data_handler, NULL, NULL);
     err = http_request(&req, cli, "GET", url,
-                http_resp_handler, NULL, NULL, NULL);
+                http_resp_handler, http_data_handler, &fptr, NULL);
     if (err)
         goto out;
 
