@@ -24,7 +24,7 @@ static void signal_handler(int signum)
 
 static void http_resp_handler(int err, const struct http_msg *msg, void *arg)
 {
-    FILE * f = * (FILE *)arg;
+    FILE ** f = arg;
     bool chunked;
 
     if (err) {
@@ -33,6 +33,9 @@ static void http_resp_handler(int err, const struct http_msg *msg, void *arg)
         goto out;
     }
 
+    if(*f) {
+        fclose(*f);
+    }
 #if 1
     re_printf("%H\n", http_msg_print, msg);
     re_printf("BODY: %b\n", msg->mb->buf, msg->mb->end);
@@ -48,20 +51,27 @@ static void http_resp_handler(int err, const struct http_msg *msg, void *arg)
 static int http_data_handler(const uint8_t *buf, size_t size,
                  const struct http_msg *msg, void *arg)
 {
-    FILE * f = arg;
+    FILE ** f = arg;
     (void)msg;
+    int write_len;
 
-    // 文件没有打开则先打开
-    if(!f)
+    re_printf("receive data %zu\n", size);
+
+    if(!*f)
     {
-        f = fopen("file.file", "w");
-        if(!f)
+        *f = fopen("file.file", "w");
+        if(!*f)
         {
-            re_printf("fopen %s error: %m\n", f);
+            re_printf("fopen %s error: %m\n", *f);
             return -1;
         }
     }
-
+    write_len = fwrite(buf, sizeof(char), size, *f);
+    if(write_len < size && errno != EINTR) {
+        re_printf("fwrite error: %m\n");
+        return -1;
+    }
+    re_printf("fwrite : %d\n", write_len);
     return 0;
 }
 
@@ -73,7 +83,7 @@ int main(int argc, const char * argv[])
     uint32_t nsc;
     struct sa nsv[16];
     char url[256];
-    FILE * fptr;
+    FILE * fptr = NULL;
     int err; /* errno return values */
 
     /* enable coredumps to aid debugging */
