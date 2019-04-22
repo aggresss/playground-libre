@@ -36,6 +36,7 @@ static void http_resp_handler(int err, const struct http_msg *msg, void *arg)
     if(*f) {
         fclose(*f);
     }
+    re_printf("file closed.\n");
 #if 1
     re_printf("%H\n", http_msg_print, msg);
     re_printf("BODY: %b\n", msg->mb->buf, msg->mb->end);
