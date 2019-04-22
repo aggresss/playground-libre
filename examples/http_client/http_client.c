@@ -44,7 +44,6 @@ static void http_resp_handler(int err, const struct http_msg *msg, void *arg)
     return;
 }
 
-
 static int http_data_handler(const uint8_t *buf, size_t size,
                  const struct http_msg *msg, void *arg)
 {
@@ -102,8 +101,10 @@ int main(int argc, const char * argv[])
 
     (void)re_snprintf(url, sizeof(url), "http://link.router7.com:8091/index.html");
 
+//    err = http_request(&req, cli, "GET", url,
+//               http_resp_handler, http_data_handler, NULL, NULL);
     err = http_request(&req, cli, "GET", url,
-               http_resp_handler, http_data_handler, NULL, NULL);
+                http_resp_handler, NULL, NULL, NULL);
     if (err)
         goto out;
 
