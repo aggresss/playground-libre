@@ -123,7 +123,7 @@ int main(int argc, const char * argv[])
         goto out;
     }
 
-    (void)re_snprintf(url, sizeof(url), "http://link.router7.com:8091/index.html");
+    (void)re_snprintf(url, sizeof(url), "http://link.router7.com:8091/Cp8ugVw-i8WAJU9EAEnLHjlJfMc620.zip");
 
     err = http_request(&req, cli, "GET", url,
                 http_resp_handler, http_data_handler, &fptr, NULL);
