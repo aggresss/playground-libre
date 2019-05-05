@@ -101,6 +101,7 @@ enable_testing()
 # ------------------------------------------------------------------------------
 
 option(BUILD_ALL "Build all submodule" OFF)
+option(WITH_OPENSSL "Build with openssl" OFF)
 
 # ------------------------------------------------------------------------------
 # Common directory
@@ -118,6 +119,13 @@ set(LIBRE_SRC_DIRS ${LIBRE_DIRS}/src)
 set(LIBREM_DIRS ${THIRD_PARTY_DIRS}/rem)
 set(LIBREM_INCLUDE_DIRS ${LIBREM_DIRS}/include)
 set(LIBREM_SRC_DIRS ${LIBREM_DIRS}/src)
+
+# openssl
+if(WITH_OPENSSL)
+  set(OPENSSL_PREFIX ${PROJECT_BINARY_DIR}/third_party/openssl)
+  set(OPENSSL_INCLUDE_DIRS ${OPENSSL_PREFIX}/include)
+  set(OPENSSL_LIBRARIES ${OPENSSL_PREFIX})
+endif()
 
 # ------------------------------------------------------------------------------
 # libre base source
@@ -195,6 +203,7 @@ add_definitions(
 # Subdirectory
 # ------------------------------------------------------------------------------
 
+add_subdirectory(third_party)
 add_subdirectory(modules)
 add_subdirectory(examples)
 
